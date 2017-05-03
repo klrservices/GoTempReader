@@ -1,6 +1,9 @@
+package pl.klr.workshops.iot.kafka;
+
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import pl.klr.workshops.iot.data.Measurement;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -8,7 +11,7 @@ import java.util.Properties;
 
 public class KafkaPublisher {
     private Properties kafkaProps = new Properties();
-    Producer<String, Double> producer = null;
+    Producer<String, Measurement> producer = null;
 
     public KafkaPublisher() {
         super();
@@ -20,14 +23,14 @@ public class KafkaPublisher {
             kafkaProps.put("bootstrap.servers", "localhost:9092");
 
             kafkaProps.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-            kafkaProps.put("value.serializer", "org.apache.kafka.common.serialization.DoubleSerializer");
+            kafkaProps.put("value.serializer", "pl.klr.workshops.iot.serialization.JacksonSerializer");
         }
 
-        producer = new KafkaProducer<String, Double>(kafkaProps);
+        producer = new KafkaProducer<String, Measurement>(kafkaProps);
     }
 
-    public void publishToKafka(String deviceId, Double temperatureCelc) {
-        ProducerRecord<String, Double> record = new ProducerRecord<String, Double>(kafkaProps.getProperty("topic","thermometer"), deviceId, temperatureCelc);
+    public void publishToKafka(Measurement measurement) {
+        ProducerRecord<String, Measurement> record = new ProducerRecord<>(kafkaProps.getProperty("topic","thermometer"), measurement.getDeviceId(), measurement);
 
         producer.send(record);
     }

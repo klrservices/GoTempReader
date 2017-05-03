@@ -1,3 +1,8 @@
+package pl.klr.workshops.iot;
+
+import pl.klr.workshops.iot.data.Measurement;
+import pl.klr.workshops.iot.kafka.KafkaPublisher;
+
 import javax.usb.*;
 import javax.usb.util.UsbUtil;
 import java.io.IOException;
@@ -58,7 +63,7 @@ public class Thermometer {
                 }
 
 //                int status = postTemperature(sensorId, temperature);
-                publishTemperature(sensorId,temperature);
+                publishTemperature(new Measurement(sensorId,System.currentTimeMillis(), temperature));
 
                 System.out.println("Sensor: "+sensorId+" measurement " + sequenceNumber + ": " + temperature + "°C");
 
@@ -110,8 +115,8 @@ public class Thermometer {
         }
     }
 
-    public static void publishTemperature(String id, double temperatureCelc) {
-        kafkaPublisher.publishToKafka(id, temperatureCelc);
+    public static void publishTemperature(Measurement measurement) {
+        kafkaPublisher.publishToKafka(measurement);
     }
 
 //    public static int postTemperature(String id, double temperatureCelc) {
