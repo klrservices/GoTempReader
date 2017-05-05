@@ -13,9 +13,7 @@ repositories {
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/org.usb4java/usb4java-javax
-    compile group: 'org.usb4java', name: 'usb4java-javax', version: '1.2.0'
-
+    compile project(':GoTempProbe')
     // https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
     compile group: 'org.apache.kafka', name: 'kafka-clients', version: '0.10.2.1'
 
