@@ -5,31 +5,31 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.smile.SmileFactory;
 import org.apache.kafka.common.serialization.Deserializer;
 import org.apache.kafka.common.serialization.Serializer;
-import pl.klr.workshops.iot.data.Measurement;
+import pl.klr.workshops.iot.data.GoTempMeasurement;
 
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.Map;
 
-import static pl.klr.workshops.iot.serialization.JacksonSerializer.SerializationHelper.from;
+import static pl.klr.workshops.iot.serialization.GoTempSerializer.SerializationHelper.from;
 
-public class JacksonSerializer  implements Closeable, AutoCloseable, Serializer<Measurement>, Deserializer<Measurement> {
+public class GoTempSerializer implements Closeable, AutoCloseable, Serializer<GoTempMeasurement>, Deserializer<GoTempMeasurement> {
     private ObjectMapper mapper;
 
-    public JacksonSerializer() {
+    public GoTempSerializer() {
         this(null);
     }
 
-    public JacksonSerializer(ObjectMapper mapper) {
+    public GoTempSerializer(ObjectMapper mapper) {
         this.mapper = mapper;
     }
 
-    public static JacksonSerializer defaultConfig() {
-        return new JacksonSerializer(new ObjectMapper());
+    public static GoTempSerializer defaultConfig() {
+        return new GoTempSerializer(new ObjectMapper());
     }
 
-    public static JacksonSerializer smileConfig() {
-        return new JacksonSerializer(new ObjectMapper(new SmileFactory()));
+    public static GoTempSerializer smileConfig() {
+        return new GoTempSerializer(new ObjectMapper(new SmileFactory()));
     }
 
     @Override
@@ -45,7 +45,7 @@ public class JacksonSerializer  implements Closeable, AutoCloseable, Serializer<
     }
 
     @Override
-    public byte[] serialize(String s, Measurement measurement) {
+    public byte[] serialize(String s, GoTempMeasurement measurement) {
         try {
             return mapper.writeValueAsBytes(from(measurement));
         }
@@ -55,7 +55,7 @@ public class JacksonSerializer  implements Closeable, AutoCloseable, Serializer<
     }
 
     @Override
-    public Measurement deserialize(String s, byte[] bytes) {
+    public GoTempMeasurement deserialize(String s, byte[] bytes) {
         try {
             return mapper.readValue(bytes, SerializationHelper.class).to();
         }
@@ -75,7 +75,7 @@ public class JacksonSerializer  implements Closeable, AutoCloseable, Serializer<
         public long measurementTime;
         public double temperature;
 
-        public static SerializationHelper from(Measurement measurement) {
+        public static SerializationHelper from(GoTempMeasurement measurement) {
             SerializationHelper helper = new SerializationHelper();
             helper.deviceId = measurement.getDeviceId();
             helper.measurementTime = measurement.getMeasurementTime();
@@ -84,8 +84,8 @@ public class JacksonSerializer  implements Closeable, AutoCloseable, Serializer<
             return helper;
         }
 
-        public Measurement to() {
-            return new Measurement(deviceId, measurementTime, temperature);
+        public GoTempMeasurement to() {
+            return new GoTempMeasurement(deviceId, measurementTime, temperature);
         }
     }
 }

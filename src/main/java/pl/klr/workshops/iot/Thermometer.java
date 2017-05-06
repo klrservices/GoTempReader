@@ -1,6 +1,6 @@
 package pl.klr.workshops.iot;
 
-import pl.klr.workshops.iot.data.Measurement;
+import pl.klr.workshops.iot.data.GoTempMeasurement;
 import pl.klr.workshops.iot.kafka.KafkaPublisher;
 import pl.klr.workshops.iot.sensors.vernier.GoTempProbe;
 
@@ -25,7 +25,7 @@ public class Thermometer {
         while (true) {
             Double temperature = goTempProbe.poll();
 
-            publishTemperature(new Measurement(sensorId,System.currentTimeMillis(), temperature));
+            publishTemperature(new GoTempMeasurement(sensorId,System.currentTimeMillis(), temperature));
 
             System.out.println("Sensor: "+sensorId+" : " + temperature + "°C");
         }
@@ -48,7 +48,7 @@ public class Thermometer {
         }
     }
 
-    public static void publishTemperature(Measurement measurement) {
+    public static void publishTemperature(GoTempMeasurement measurement) {
         kafkaPublisher.publishToKafka(measurement);
     }
 

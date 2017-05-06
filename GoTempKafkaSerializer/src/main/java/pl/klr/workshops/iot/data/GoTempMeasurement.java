@@ -1,11 +1,11 @@
 package pl.klr.workshops.iot.data;
 
-public class Measurement {
+public class GoTempMeasurement {
     private String deviceId;
     private long measurementTime;
     private double temperature;
 
-    public Measurement(String deviceId, long measurementTime, double temperature) {
+    public GoTempMeasurement(String deviceId, long measurementTime, double temperature) {
         this.deviceId = deviceId;
         this.measurementTime = measurementTime;
         this.temperature = temperature;
