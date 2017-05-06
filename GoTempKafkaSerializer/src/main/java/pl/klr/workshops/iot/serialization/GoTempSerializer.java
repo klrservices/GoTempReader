@@ -17,7 +17,7 @@ public class GoTempSerializer implements Closeable, AutoCloseable, Serializer<Go
     private ObjectMapper mapper;
 
     public GoTempSerializer() {
-        this(null);
+        this(new ObjectMapper());
     }
 
     public GoTempSerializer(ObjectMapper mapper) {
@@ -67,7 +67,7 @@ public class GoTempSerializer implements Closeable, AutoCloseable, Serializer<Go
 
     @Override
     public void close() {
-        mapper = null;
+        //mapper = null;
     }
 
     public static class SerializationHelper {
