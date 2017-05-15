@@ -1,4 +1,5 @@
 rootProject.name = 'GoTempReader'
 include 'GoTempProbe'
-include 'GoTempKafkaSerializer'
+include 'GoTempKafkaPublisher'
+include 'GoTempProbeEmulator'
 

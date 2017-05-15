@@ -12,7 +12,6 @@ repositories {
 }
 
 dependencies {
-    compile project(':GoTempProbe')
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.7.2'
     compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-smile', version: '2.7.2'
     // https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
@@ -23,7 +22,7 @@ dependencies {
 publishing {
     publications {
         maven(MavenPublication) {
-            artifactId 'gotemp-serializer'
+            artifactId 'gotemp-publisher'
 
             from components.java
         }

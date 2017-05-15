@@ -13,7 +13,8 @@ repositories {
 }
 
 dependencies {
-    compile project(':GoTempKafkaSerializer')
+    compile project(':GoTempKafkaPublisher')
+    compile project(':GoTempProbe')
     // https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
     compile group: 'org.apache.kafka', name: 'kafka-clients', version: '0.10.2.1'
 
