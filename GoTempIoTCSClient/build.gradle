@@ -6,15 +6,25 @@ apply plugin: 'application'
 
 sourceCompatibility = 1.8
 
-//mainClassName = "pl.klr.workshops.iot.Thermometer"
+mainClassName = "pl.klr.workshops.iot.iotcs.IoTCSClient"
 
 repositories {
     mavenCentral()
 }
 
+distributions {
+    main {
+        contents {
+            from (sourceSets.main.resources) {
+                into '/'
+            }
+        }
+    }
+}
+
 dependencies {
     compile project(':GoTempProbe')
-
+    compile fileTree(dir: 'c:\\Install\\Oracle\\IoTCS\\client\\17.3.5.0.0-11\\javase\\iotcs\\csl\\javase\\lib', include: '*.jar')
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
