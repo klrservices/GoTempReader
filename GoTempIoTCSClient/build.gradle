@@ -24,7 +24,10 @@ distributions {
 
 dependencies {
     compile project(':GoTempProbe')
-    compile fileTree(dir: 'c:\\Install\\Oracle\\IoTCS\\client\\17.3.5.0.0-11\\javase\\iotcs\\csl\\javase\\lib', include: '*.jar')
+    compile fileTree("$iotcsClientDir/javase/iotcs/csl/javase/lib") {
+        includes = ['device-library.jar','json-20160212.jar']
+    }
+
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
