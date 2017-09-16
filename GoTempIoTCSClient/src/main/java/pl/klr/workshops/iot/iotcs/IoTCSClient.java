@@ -35,13 +35,10 @@ public class IoTCSClient {
         timer.schedule(publisher, 100, 1000);
 
         while (loopRead) {
-//            Double temperature = probe.poll();
-
             loopRead = System.in.available() == 0;
 
             Thread.sleep(100);
         }
-
 
         timer.cancel();
         probe.stop();
