@@ -1,0 +1,32 @@
+{
+  "urn": "urn:vernier:gotemp",
+  "name": "GoTemp-DeviceModel",
+  "description": "Device model for the Vernier GoTemp thermometer",
+  "system": false,
+  "draft": false,
+  "created": 1505499627269,
+  "createdAsString": "2017-09-15T18:20:27.269Z",
+  "lastModified": 1505548127174,
+  "lastModifiedAsString": "2017-09-16T07:48:47.174Z",
+  "userLastModified": "IoTAdmin",
+  "attributes": [
+    {
+      "description": "Current temperature in Celcius",
+      "name": "Temperature",
+      "type": "NUMBER",
+      "writable": true
+    }
+  ],
+  "actions": [],
+  "formats": [],
+  "links": [
+    {
+      "href": "https://141.144.83.175:443/iot/webapi/v2/deviceModels/urn%3Avernier%3Agotemp",
+      "rel": "self"
+    },
+    {
+      "href": "https://141.144.83.175:443/iot/webapi/v2/deviceModels/urn%3Avernier%3Agotemp",
+      "rel": "canonical"
+    }
+  ]
+}
