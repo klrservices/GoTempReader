@@ -24,7 +24,7 @@ distributions {
 
 dependencies {
     compile project(':GoTempProbe')
-    compile fileTree("$iotcsClientDir/javase/iotcs/csl/javase/lib") {
+    compile fileTree("$iotcsClientDir/csl/javase/lib") {
         includes = ['device-library.jar','json-20160212.jar']
     }
 
