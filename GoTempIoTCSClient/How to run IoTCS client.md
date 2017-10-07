@@ -17,7 +17,7 @@
     _Linux_:
     ```
     cd GoTempReader
-    ./gradlew -PiotcsClientDir=<iotcs-client-binaries-folder> installDist
+    ./gradlew -PiotcsClientDir=<iotcs-client-binaries-folder>/iotcs installDist
     ```
 
     _Windows_:
