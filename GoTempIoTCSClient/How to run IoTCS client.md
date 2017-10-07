@@ -6,7 +6,7 @@
 
     [Oracle IoT Cloud Service Client Software Libraries](http://www.oracle.com/technetwork/indexes/downloads/iot-client-libraries-2705514.html#javase)
 
-3. Unzip the binaries to some folder <iotcs-client-binaries-folder> (e.g.: _c:/IoTCS/client/17.3.5.0.0-11_)
+3. Unzip the binaries to some folder `<iotcs-client-binaries-folder>` (e.g.: _c:/IoTCS/client/17.3.5.0.0-11_)
 
 4. Clone the github repository
 
@@ -23,7 +23,7 @@
     _Windows_:
     ```
     cd GoTempReader
-    gradlew.bat -PiotcsClientDir=<iotcs-client-binaries-folder> installDist
+    gradlew.bat -PiotcsClientDir=<iotcs-client-binaries-folder>\iotcs installDist
     ```
 
 6. Plug the Vernier's GoTemp temperature probe to any available USB port
