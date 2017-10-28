@@ -3,10 +3,13 @@ package pl.klr.workshops.iot.sensors.vernier;
 import javax.usb.*;
 import javax.usb.util.UsbUtil;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/*
+ * Source code for reading Vernier's GoTemp! temperature sensor
+ * thanks to courtesy of http://flylib.com/books/en/1.134.1.197/1/
+ */
 public class GoTempProbe {
     public final static int VERNIER_VENDOR_ID = 0x8F7;
     public final static int GOTEMP_PRODUCT_ID = 2;
