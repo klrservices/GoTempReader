@@ -3,4 +3,5 @@ include 'GoTempProbe'
 include 'GoTempKafkaPublisher'
 include 'GoTempProbeEmulator'
 include 'GoTempIoTCSClient'
+include 'TempEmulatorIoTCSClient'
 
