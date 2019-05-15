@@ -11,13 +11,17 @@ mainClassName = 'pl.klr.workshops.iot.utils.MockupFrame'
 sourceCompatibility = 1.8
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
 dependencies {
-    compile fileTree("$iotcsClientDir/csl/javase/lib") {
+    compile 'com.oracle.iot.client:device-library:19.1.5'
+    compile 'org.json:json:20160212'
+
+    /*compile fileTree("$IOTCS_HOME/javase/lib") {
         includes = ['device-library.jar','json-20160212.jar']
-    }
+    }*/
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

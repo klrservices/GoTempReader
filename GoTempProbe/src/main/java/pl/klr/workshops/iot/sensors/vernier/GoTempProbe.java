@@ -108,13 +108,20 @@ public class GoTempProbe {
 
     public static void main(String[] args) {
         GoTempProbe goTempProbe = new GoTempProbe();
+        boolean loopRead = true;
 
         try {
             goTempProbe.start();
 
-            Double temp = goTempProbe.poll();
+            while (loopRead) {
+                loopRead = System.in.available() == 0;
 
-            System.out.println(temp);
+                Thread.sleep(2000);
+
+                Double temp = goTempProbe.poll();
+
+                System.out.println(temp);
+            }
 
             goTempProbe.stop();
         } catch (Exception e) {

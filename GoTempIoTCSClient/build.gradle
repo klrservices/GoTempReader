@@ -9,6 +9,7 @@ sourceCompatibility = 1.8
 mainClassName = "pl.klr.workshops.iot.iotcs.IoTCSClient"
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
@@ -24,9 +25,13 @@ distributions {
 
 dependencies {
     compile project(':GoTempProbe')
-    compile fileTree("$iotcsClientDir/csl/javase/lib") {
-        includes = ['device-library.jar','json-20160212.jar']
-    }
+    compile 'com.oracle.iot.client:device-library:19.1.5'
+    compile 'org.json:json:20160212'
+    compile 'org.apache.derby:derby:10.11.1.1'
+    
+    /*compile fileTree("$IOTCS_HOME/javase/lib") {
+        includes = ['derby-10.11.1.1.jar']
+    }*/
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

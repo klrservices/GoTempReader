@@ -4,6 +4,7 @@ import oracle.iot.client.DeviceModel;
 import oracle.iot.client.device.DirectlyConnectedDevice;
 import oracle.iot.client.device.VirtualDevice;
 import pl.klr.workshops.iot.sensors.vernier.GoTempProbe;
+import pl.klr.workshops.iot.sensors.vernier.GoTempProbeV2;
 
 import javax.usb.UsbException;
 import java.util.Timer;
@@ -27,7 +28,7 @@ public class IoTCSClient {
 
         boolean loopRead = true;
 
-        GoTempProbe probe = new GoTempProbe();
+        GoTempProbeV2 probe = new GoTempProbeV2();
         IoTCSPublisher publisher = new IoTCSPublisher(probe, virtualDevice);
         Timer timer = new Timer("GoTempTimer");
 
@@ -47,10 +48,10 @@ public class IoTCSClient {
     }
 
     static class IoTCSPublisher extends TimerTask {
-        GoTempProbe probe;
+        GoTempProbeV2 probe;
         VirtualDevice virtualDevice;
 
-        public IoTCSPublisher(GoTempProbe probe, VirtualDevice virtualDevice) {
+        public IoTCSPublisher(GoTempProbeV2 probe, VirtualDevice virtualDevice) {
             this.probe = probe;
             this.virtualDevice = virtualDevice;
         }

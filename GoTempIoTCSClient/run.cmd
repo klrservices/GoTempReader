@@ -1,0 +1,1 @@
+build\install\GoTempIoTCSClient\bin\GoTempIoTCSClient.bat gotemp-002 Welcome1#
